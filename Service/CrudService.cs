@@ -7,6 +7,8 @@ using Omu.ProDinner.Core.Service;
 
 namespace Omu.ProDinner.Service
 {
+    //针对于某个仓库执行Crud操作的服务类，
+    //实际上在创建一个确定的服务类的时候 ，就已经确定了这个服务类是为哪个具体的仓库而服务。
     public class  CrudService<T> : ICrudService<T> where T : DelEntity, new()
     {
         protected IRepo<T> repo;
@@ -26,6 +28,7 @@ namespace Omu.ProDinner.Service
             return repo.Get(id);
         }
 
+        //在创建一条新的数据插入数据库之后，因为id是自增长的，所以有需要获取到插入后他被分配的id
         public virtual int Create(T item)
         {
             var newItem = repo.Insert(item);

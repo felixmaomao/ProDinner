@@ -7,6 +7,8 @@ using Omu.ProDinner.Resources;
 
 namespace Omu.ProDinner.WebUI.Dto
 {
+    //这个项目使用 valueInjecter来 映射 viewmodel和Entity实体，个人也是蛮喜欢的。是一个相当不错的做法。
+
     public class Input
     {
         public int Id { get; set; }

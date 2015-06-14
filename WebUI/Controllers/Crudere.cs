@@ -15,6 +15,9 @@ namespace Omu.ProDinner.WebUI.Controllers
     /// <typeparam name="TEntity"> the entity</typeparam>
     /// <typeparam name="TCreateInput">create viewmodel</typeparam>
     /// <typeparam name="TEditInput">edit viewmodel</typeparam>
+    
+    //经过我们的模拟，发现在建立真正的controller的时候都会有一些重复性的劳动，都需要展示列表 index  create 都需要 edit
+    //那我们不妨造一个多这些基础功能的抽象类
     public abstract class Crudere<TEntity, TCreateInput, TEditInput> : BaseController
         where TCreateInput : new()
         where TEditInput : Input, new()
@@ -41,6 +44,8 @@ namespace Omu.ProDinner.WebUI.Controllers
             return View();
         }
 
+        //因为事实上不管针对于哪个具体的实体，基本上都会涉及到两个固定的操作：  创建 以及 修改 操作。
+        //为了减少针对每个具体的实体都需要进行的创建以及修改操作。
         public ActionResult Create()
         {
             return View(createMapper.MapToInput(new TEntity()));
@@ -93,7 +98,6 @@ namespace Omu.ProDinner.WebUI.Controllers
         public ActionResult Restore(int id)
         {
             service.Restore(id);
-
             return Json(new { Id = id, Content = this.RenderView(RowViewName, new[] { service.Get(id) }), Type = typeof(TEntity).Name.ToLower() });
         }
 

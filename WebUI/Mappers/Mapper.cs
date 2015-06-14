@@ -6,6 +6,7 @@ namespace Omu.ProDinner.WebUI.Mappers
         where TEntity : class, new()
         where TInput : new()
     {
+        //这边的将实体对象的内容注入到输入对象，是在修改时需要吗？
         public virtual TInput MapToInput(TEntity entity)
         {
             var input = new TInput();
@@ -15,6 +16,7 @@ namespace Omu.ProDinner.WebUI.Mappers
             return input;
         }
 
+        //我们所填写的对象认为是TInput对象，真正的实体对象可能属性和填写的稍有一些不同，所以我们获取部分属性，填充入实体对象中
         public virtual TEntity MapToEntity(TInput input, TEntity e)
         {
             e.InjectFrom(input)

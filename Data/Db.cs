@@ -3,6 +3,7 @@ using Omu.ProDinner.Core.Model;
 
 namespace Omu.ProDinner.Data
 {
+    //dbcontext作为与数据库交互的桥梁，从这里可以获取需要的数据源
     public class Db : DbContext
     {
         public Db()
@@ -10,6 +11,7 @@ namespace Omu.ProDinner.Data
             Database.SetInitializer<Db>(null);
         }
 
+        //Entity Framework
         public DbSet<Country> Countries { get; set; }
         public DbSet<Chef> Chefs { get; set; }
         public DbSet<Meal> Meals { get; set; }

@@ -1,0 +1,5 @@
+H:\ProDinnerStudy\ProDinner\Core\bin\Debug\Omu.ProDinner.Core.dll
+H:\ProDinnerStudy\ProDinner\Core\bin\Debug\Omu.ProDinner.Core.pdb
+H:\ProDinnerStudy\ProDinner\Core\obj\Debug\Core.csprojResolveAssemblyReference.cache
+H:\ProDinnerStudy\ProDinner\Core\obj\Debug\Omu.ProDinner.Core.dll
+H:\ProDinnerStudy\ProDinner\Core\obj\Debug\Omu.ProDinner.Core.pdb
